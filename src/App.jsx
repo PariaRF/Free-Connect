@@ -1,8 +1,20 @@
+import { Route, Routes } from "react-router-dom";
+import Auth from "./pages/Auth";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Toaster } from "react-hot-toast";
+
+const queryClient = new QueryClient();
+
 function App() {
   return (
-    <>
-      <h1 className=" container text-xl font-bold ">فری کانکت</h1>
-    </>
+    <QueryClientProvider client={queryClient}>
+      <Toaster />
+      <div className="container xl:max-w-screen-xl">
+        <Routes>
+          <Route path="/auth" element={<Auth />} />
+        </Routes>
+      </div>
+    </QueryClientProvider>
   );
 }
 

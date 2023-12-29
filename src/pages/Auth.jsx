@@ -5,7 +5,7 @@ function Auth() {
   const [step, setStep] = useState(1);
 
   return (
-    <div className="flex justify-center p-10">
+    <div className="flex justify-center pt-10">
       <AuthContainer />
     </div>
   );

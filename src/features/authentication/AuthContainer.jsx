@@ -8,6 +8,7 @@ import toast from "react-hot-toast";
 function AuthContainer() {
   const [step, setStep] = useState(1);
   const [phoneNumber, setPhoneNumber] = useState("");
+
   const {
     isPending: isSendingOtp,
     mutateAsync,

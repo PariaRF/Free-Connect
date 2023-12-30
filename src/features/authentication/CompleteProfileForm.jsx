@@ -1,14 +1,39 @@
 import { useState } from "react";
 import TextField from "../../ui/TextField";
 import RadioInput from "../../ui/RadioInput";
+import { useMutation } from "@tanstack/react-query";
+import { completeProfile } from "../../services/authService";
+import toast from "react-hot-toast";
+import Loading from "../../ui/Loading";
+import { useNavigate } from "react-router-dom";
 
 function CompleteProfileForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [role, setRole] = useState("");
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const { isPending, mutateAsync } = useMutation({
+    mutationFn: completeProfile,
+  });
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    try {
+      const { user, message } = await mutateAsync({ name, email, role });
+      toast.success(message);
+
+      if (user.status !== 2) {
+        navigate("/");
+        toast("حساب کاربری شما در انتظار تایید است!", { icon: "👏" });
+        return;
+      }
+      if (user.role === "OWNER") return navigate("/owner");
+      if (user.role === "FREELANCER") return navigate("/freelancer");
+    } catch (error) {
+      console.log(error);
+      toast.error(error?.response?.data?.message);
+    }
   };
 
   return (
@@ -45,9 +70,15 @@ function CompleteProfileForm() {
               checked={role === "FREELANCER"}
             />
           </div>
-          <button type="submit" className="btn btn--primary w-full">
-            تایید
-          </button>
+          <div>
+            {isPending ? (
+              <Loading />
+            ) : (
+              <button type="submit" className="btn btn--primary w-full">
+                تایید
+              </button>
+            )}
+          </div>
         </form>
       </div>
     </div>

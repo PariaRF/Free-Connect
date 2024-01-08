@@ -66,6 +66,18 @@
   .btn--secondary{
     @apply py-3 bg-secondary-500 text-secondary-100
   }
+  .badge {
+    @apply inline-block whitespace-nowrap rounded-xl px-2 py-0.5;
+  }
+  .badge--secondary {
+    @apply bg-secondary-200 text-secondary-600;
+  }
+  .badge--success{
+    @apply bg-green-500 text-white
+  }
+  .badge--danger{
+    @apply bg-red-500 text-white
+  }
 }
 
 html,
@@ -85,4 +97,35 @@ body{
   outline: none;
   padding: 0;
   margin: 0;
+}
+
+/* TABLE */
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+table .title-row {
+  background-color: rgb(var(--color-secondary-100));
+}
+
+table td,
+table th {
+  border-bottom: 1px solid rgb(var(--color-secondary-200));
+  text-align: right;
+  white-space: nowrap;
+}
+
+table th {
+  padding: 0.6rem 1rem;
+  color: rgb(var(--color-secondary-600));
+  font-size: 0.9rem;
+}
+
+table td {
+  font-size: 0.85rem;
+  padding: 1rem 1rem;
+  color: rgb(var(--color-secondary-600));
 }

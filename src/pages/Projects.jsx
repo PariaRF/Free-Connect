@@ -1,7 +1,9 @@
+import ProjectTable from "../features/projects/ProjectTable";
+
 function Projects() {
   return (
     <div>
-      <h1>Projects</h1>
+      <ProjectTable />
     </div>
   );
 }

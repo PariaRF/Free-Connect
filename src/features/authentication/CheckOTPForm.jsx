@@ -32,7 +32,7 @@ function CheckOTPForm({ phoneNumber, onBack, onResendOtp, otpResponse }) {
       const { message, user } = await mutateAsync({ phoneNumber, otp });
       toast.success(message);
 
-      if (!user.isActice) return navigate("/complete-profile");
+      if (!user.isActive) return navigate("/complete-profile");
       if (user.status !== 2) {
         navigate("/");
         toast("حساب کاربری شما در انتظار تایید است!", { icon: "👏" });

@@ -12,6 +12,7 @@ function ProjectHeader() {
         title="اضافه کردن پروژه جدید"
         open={open}
         onClose={() => setOpen(false)}
+        style={{ height: "calc(100vh - 100px)" }}
       >
         <CreateProjectForm onClose={() => StereoPannerNode(false)} />
       </Modal>

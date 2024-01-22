@@ -152,3 +152,21 @@ table td {
   padding: 1rem 1rem;
   color: rgb(var(--color-secondary-600));
 }
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(var(--color-primary-300)); 
+  border-radius: 5px; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--color-primary-900)); 
+  border-radius: 5px; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--color-primary-800));
+} 

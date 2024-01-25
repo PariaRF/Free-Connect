@@ -8,6 +8,7 @@ import { HiOutlineTrash } from "react-icons/hi";
 import { TbPencilMinus } from "react-icons/tb";
 import ConfirmDelete from "../../ui/ConfirmDelete";
 import useRemoveProject from "./useRemoveProject";
+import CreateProjectForm from "./CreateProjectForm";
 
 function ProjectRow({ project, index }) {
   const [isEditOpen, setIsEditOpen] = useState(false);
@@ -47,8 +48,12 @@ function ProjectRow({ project, index }) {
             open={isEditOpen}
             title={`ویرایش ${project.title}`}
             onClose={() => setIsEditOpen(false)}
+            style={{ height: "calc(100vh - 100px)" }}
           >
-            this is Edit modal
+            <CreateProjectForm
+              projectToEdit={project}
+              onClose={() => setIsEditOpen(false)}
+            />
           </Modal>
           <button onClick={() => setIsDeleteOpen(true)}>
             <HiOutlineTrash className="w-5 h-5 text-error" />

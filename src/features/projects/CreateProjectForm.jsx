@@ -5,8 +5,10 @@ import RHFSelect from "../../ui/RHFSelect";
 import { TagsInput } from "react-tag-input-component";
 import DatePickerField from "../../ui/DatePickerField";
 import useCategories from "../../hooks/useCategories";
+import useCreateProject from "./useCreateProject";
+import Loading from "../../ui/Loading";
 
-function CreateProjectForm() {
+function CreateProjectForm({ onClose }) {
   const [tags, setTags] = useState([]);
   const [date, setDate] = useState(new Date());
 
@@ -14,12 +16,24 @@ function CreateProjectForm() {
     register,
     formState: { errors },
     handleSubmit,
+    reset,
   } = useForm();
   const { categories } = useCategories();
-  // console.log(categories);
+  const { isCreating, createProject } = useCreateProject();
 
   const onSubmit = (data) => {
-    console.log(data);
+    const newProject = {
+      ...data,
+      deadline: new Date(date).toISOString(),
+      tags,
+    };
+    console.log(newProject);
+    createProject(newProject, {
+      onSuccess: () => {
+        onClose();
+        reset();
+      },
+    });
   };
 
   return (
@@ -79,9 +93,15 @@ function CreateProjectForm() {
         <TagsInput value={tags} onChange={setTags} name="tags" />
       </div>
       <DatePickerField date={date} setDate={setDate} label="ددلاین" />
-      <button type="submit" className="btn btn--primary w-full">
-        تایید
-      </button>
+      <div className="!mt-8">
+        {isCreating ? (
+          <Loading />
+        ) : (
+          <button type="submit" className="btn btn--primary w-full">
+            تایید
+          </button>
+        )}
+      </div>
     </form>
   );
 }

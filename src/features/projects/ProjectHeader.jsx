@@ -14,7 +14,7 @@ function ProjectHeader() {
         onClose={() => setOpen(false)}
         style={{ height: "calc(100vh - 100px)" }}
       >
-        <CreateProjectForm onClose={() => StereoPannerNode(false)} />
+        <CreateProjectForm onClose={() => setOpen(false)} />
       </Modal>
       <button
         onClick={() => setOpen(true)}

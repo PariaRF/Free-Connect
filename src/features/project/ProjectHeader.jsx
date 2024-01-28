@@ -1,7 +1,16 @@
-function ProjectHeader() {
+import { HiArrowRight } from "react-icons/hi";
+import useMoveBack from "../../hooks/useMoveBack";
+
+function ProjectHeader({ project }) {
+  const moveBsck = useMoveBack();
   return (
-    <div>
-      <h1>ProjectHeader</h1>
+    <div className="flex items-center gap-x-4 mb-8">
+      <button onClick={moveBsck}>
+        <HiArrowRight className="w-5 h-5 text-secondary-500" />
+      </button>
+      <h1 className="font-black text-secondary-700 text-xl">
+        لیست درخواست های {project.title}
+      </h1>
     </div>
   );
 }

@@ -1,10 +1,20 @@
+import UserAvatar from "../features/authentication/UserAvatar";
 import useUser from "../features/authentication/useUser";
+import HeaderMenu from "./HeaderMenu";
 
 function Header() {
-  const { data } = useUser();
+  const { isLoading } = useUser();
+
   return (
-    <div className=" py-4 px-8 bg-secondary-0">
-      <h1>HEADER COMPONENT</h1>
+    <div className="py-4 px-8 bg-secondary-0 border-secondary-200">
+      <div
+        className={`container xl:max-w-screen-lg flex items-center justify-end gap-x-8 ${
+          isLoading ? "blur-sm opacity-50" : ""
+        }`}
+      >
+        <UserAvatar />
+        <HeaderMenu />
+      </div>
     </div>
   );
 }

@@ -18,7 +18,7 @@ function Modal({ open, onClose, title, children, style = {} }) {
           w-[calc(100vw-2rem)] md:max-w-lg max-h-[clac(100vh)-2rem] overflow-y-auto scrollbar-black"
           style={style}
         >
-          <div className="flex items-center justify-between border-b border-b-secondary-300 pb-2 mb-6 sticky top-0 bg-white py-4">
+          <div className="flex items-center justify-between border-b border-b-secondary-300 pb-2 mb-6 sticky top-0 bg-secondary-0 py-4">
             <p className="text-seconndary-700 font-bold text-base">{title}</p>
             <button onClick={onClose}>
               <HiOutlineX className="w-5 h-5 text-secondary-500 " />

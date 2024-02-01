@@ -16,7 +16,7 @@ function TextField({
         {...register(name, validationSchema)}
         id={name}
         type={type}
-        className="textField__input"
+        className="textField__input bg-transparent"
         autoComplete="off"
       />
       {errors && errors[name] && (

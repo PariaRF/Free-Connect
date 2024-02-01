@@ -1,7 +1,9 @@
+import DashboardLayout from "../features/freelancer/DashboardLayout";
+
 function FreelancerDashboard() {
   return (
     <div>
-      <h1>freelancer dashboard</h1>
+      <DashboardLayout />
     </div>
   );
 }

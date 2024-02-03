@@ -14,7 +14,7 @@ function FreelancerLayout() {
           </CustomNavLink>
           <CustomNavLink to="projects">
             <HiCollection />
-            <span>پروپزال ها</span>
+            <span>پروژه ها</span>
           </CustomNavLink>
           <CustomNavLink to="proposals">
             <HiCollection />

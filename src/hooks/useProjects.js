@@ -3,7 +3,7 @@ import { getProjectsApi } from "../services/projectService";
 
 export default function useProjects(){
     const {data, isLoading} = useQuery({
-        queryKey: "projects",
+        queryKey: ["projects"],
         queryFn: getProjectsApi,
     })
 

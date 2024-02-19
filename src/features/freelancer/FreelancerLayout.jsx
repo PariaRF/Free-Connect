@@ -1,4 +1,4 @@
-import { HiCollection, HiHome } from "react-icons/hi";
+import { HiCollection, HiHome, HiOutlineViewGrid } from "react-icons/hi";
 import AppLayout from "../../ui/AppLayout";
 import CustomNavLink from "../../ui/CustomNavLink";
 import Sidebar from "../../ui/Sidebar";
@@ -17,7 +17,7 @@ function FreelancerLayout() {
             <span>پروژه ها</span>
           </CustomNavLink>
           <CustomNavLink to="proposals">
-            <HiCollection />
+            <HiOutlineViewGrid />
             <span>درخواست ها</span>
           </CustomNavLink>
         </Sidebar>

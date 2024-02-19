@@ -15,6 +15,8 @@ import FreelancerDashboard from "./pages/FreelancerDashboard";
 import Proposals from "./pages/Proposals";
 import SubmitedProjects from "./pages/SubmitedProjects";
 import FreelancerLayout from "./features/freelancer/FreelancerLayout";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+// import ReactQueryDevTools from "@ta"
 
 const queryClient = new QueryClient();
 
@@ -22,6 +24,7 @@ function App() {
   return (
     <DarkModeProvider>
       <QueryClientProvider client={queryClient}>
+        <ReactQueryDevtools initialIsOpen={false} />
         <Toaster />
         <Routes>
           <Route path="/auth" element={<Auth />} />

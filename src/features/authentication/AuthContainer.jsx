@@ -1,13 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SendOTPForm from "./SendOTPForm";
 import CheckOTPForm from "./CheckOTPForm";
 import { getOtp } from "../../services/authService";
 import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { useForm } from "react-hook-form";
+import useUser from "./useUser";
+import { useNavigate } from "react-router-dom";
 
 function AuthContainer() {
-  const [step, setStep] = useState(2);
+  const [step, setStep] = useState(1);
   const [phoneNumber, setPhoneNumber] = useState("09384224144");
   const { handleSubmit, register, getValues } = useForm();
 

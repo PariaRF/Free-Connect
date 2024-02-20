@@ -67,12 +67,12 @@ function CheckOTPForm({ phoneNumber, onBack, onResendOtp, otpResponse }) {
         )}
       </div>
       <form onSubmit={checkOtpHandler} className="space-y-10">
-        <p className="font-bold text-secondray-800">کد تایید را وارد کنید</p>
+        <p className="font-bold text-secondary-700">کد تایید را وارد کنید</p>
         <OTPInput
           value={otp}
           onChange={setOtp}
           numInputs={6}
-          renderSeparator={<span>-</span>}
+          renderSeparator={<span className="text-secondary-700">-</span>}
           renderInput={(props) => <input type="number" {...props} />}
           containerStyle="flex flex-row-reverse gap-x-2 justify-center"
           inputStyle={{
@@ -80,6 +80,8 @@ function CheckOTPForm({ phoneNumber, onBack, onResendOtp, otpResponse }) {
             padding: "0.5rem 0.2rem",
             border: "1px solid rgb(var(--color-primary-400))",
             borderRadius: "0.5rem",
+            color: "rgb(var(--color-secondary-700))",
+            backgroundColor: "rgb(var(--bg-secondary-0))",
           }}
         />
         <div>

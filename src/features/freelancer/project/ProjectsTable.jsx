@@ -18,7 +18,7 @@ function ProjectsTable() {
         <th>بودجه</th>
         <th>ددلاین</th>
         <th>وضعیت</th>
-        <th>عملیات</th>
+        {/* <th>عملیات</th> */}
       </Table.Header>
       <Table.Body>
         {projects.map((project, index) => (

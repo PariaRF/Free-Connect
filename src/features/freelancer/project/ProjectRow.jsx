@@ -33,7 +33,7 @@ function ProjectRow({ project, index }) {
           {projectStatus[status].label}
         </span>
       </td>
-      <td>
+      {/* <td>
         <Modal
           open={open}
           onClose={() => setOpen(false)}
@@ -47,7 +47,7 @@ function ProjectRow({ project, index }) {
         <button onClick={() => setOpen(true)}>
           <MdAssignment className="w-5 h-5 text-primary-900" />
         </button>
-      </td>
+      </td> */}
     </Table.Row>
   );
 }

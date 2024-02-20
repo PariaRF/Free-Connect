@@ -24,7 +24,7 @@ function AdminLayout() {
           <HiCollection />
           <span>پروژه ها</span>
         </CustomNavLink>
-        <CustomNavLink to="projects">
+        <CustomNavLink to="proposals">
           <HiOutlineViewGrid />
           <span>درخواست ها</span>
         </CustomNavLink>

@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 function AuthContainer() {
   const [step, setStep] = useState(1);
-  const [phoneNumber, setPhoneNumber] = useState("09384224144");
+  // const [phoneNumber, setPhoneNumber] = useState("09384224144");
   const { handleSubmit, register, getValues } = useForm();
 
   const {
@@ -46,8 +46,8 @@ function AuthContainer() {
       case 2:
         return (
           <CheckOTPForm
-            phoneNumber={phoneNumber}
-            // phoneNumber={getValues("phoneNumber")}
+            // phoneNumber={phoneNumber}
+            phoneNumber={getValues("phoneNumber")}
             onResendOtp={sendOtpHandler}
             otpResponse={otpResponse}
             onBack={() => setStep((s) => s - 1)}

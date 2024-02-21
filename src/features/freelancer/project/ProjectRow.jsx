@@ -18,7 +18,7 @@ const projectStatus = {
   },
 };
 
-function ProjectRow({ project, index }) {
+function ProjectRow({ project, index, role }) {
   const { status, title, budget, deadline } = project;
   const [open, setOpen] = useState(false);
 
@@ -33,21 +33,25 @@ function ProjectRow({ project, index }) {
           {projectStatus[status].label}
         </span>
       </td>
-      {/* <td>
-        <Modal
-          open={open}
-          onClose={() => setOpen(false)}
-          title={`درخواست انجام پروژه ${title}`}
-        >
-          <CreateProposal
+      {role === "freelancer" ? (
+        <td>
+          <Modal
+            open={open}
             onClose={() => setOpen(false)}
-            projectId={project._id}
-          />
-        </Modal>
-        <button onClick={() => setOpen(true)}>
-          <MdAssignment className="w-5 h-5 text-primary-900" />
-        </button>
-      </td> */}
+            title={`درخواست انجام پروژه ${title}`}
+          >
+            <CreateProposal
+              onClose={() => setOpen(false)}
+              projectId={project._id}
+            />
+          </Modal>
+          <button onClick={() => setOpen(true)}>
+            <MdAssignment className="w-5 h-5 text-primary-900" />
+          </button>
+        </td>
+      ) : (
+        ""
+      )}
     </Table.Row>
   );
 }

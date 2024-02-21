@@ -1,3 +1,4 @@
+import { useLocation } from "react-router-dom";
 import useProjects from "../../../hooks/useProjects";
 import Empty from "../../../ui/Empty";
 import Loading from "../../../ui/Loading";
@@ -6,6 +7,9 @@ import ProjectRow from "./ProjectRow";
 
 function ProjectsTable() {
   const { projects, isLoading } = useProjects();
+  const { pathname } = useLocation();
+  const role = pathname.split("/").at(1);
+  console.log();
 
   if (isLoading) return <Loading />;
   if (!projects.length) return <Empty resourceName="پروژه" />;
@@ -18,11 +22,16 @@ function ProjectsTable() {
         <th>بودجه</th>
         <th>ددلاین</th>
         <th>وضعیت</th>
-        {/* <th>عملیات</th> */}
+        {role === "freelancer" ? <th>عملیات</th> : ""}
       </Table.Header>
       <Table.Body>
         {projects.map((project, index) => (
-          <ProjectRow key={project._id} project={project} index={index} />
+          <ProjectRow
+            key={project._id}
+            project={project}
+            index={index}
+            role={role}
+          />
         ))}
       </Table.Body>
     </Table>

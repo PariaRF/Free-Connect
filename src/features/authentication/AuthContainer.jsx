@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 function AuthContainer() {
   const [step, setStep] = useState(1);
-  // const [phoneNumber, setPhoneNumber] = useState("09384224144");
+  // const [phoneNumber, setPhoneNumber] = useState("09031820241");
   const { handleSubmit, register, getValues } = useForm();
 
   const {
